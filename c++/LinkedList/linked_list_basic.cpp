@@ -117,17 +117,39 @@ int main()
     //     current = current->next;
     // }
 
-    ListNode *head = new ListNode(10);
+    ListNode *head = new ListNode(1);
 
-    insert_node_at_end(head, 20);
-    insert_node_at_end(head, 30);
-    insert_node_at_end(head, 40);
-    insert_node_at_end(head, 50);
-
-    print_list(head);
-
-    delete_node(head, 50);
+    insert_node_at_end(head, 1);
+    insert_node_at_end(head, 2);
+    insert_node_at_end(head, 3);
+    insert_node_at_end(head, 3);
 
     print_list(head);
+
+
+    ListNode* head_ptr = head;
+    ListNode * current = head,* prev = head;
+
+    // delete_node(head, 50);
+
+    // print_list(head);
+
+    while (current)
+    {
+        current = current->next;
+
+        if(prev->data==current->data){
+            cout<<"current: "<<current->data<<endl;
+            prev->next = current->next;
+        }
+        else{
+            prev = current;
+        }
+//  1->1->1 1 3 4 5
+        
+    }
+
+    // print_list(head_ptr);
+
     return 0;
 }
